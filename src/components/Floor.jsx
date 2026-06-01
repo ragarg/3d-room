@@ -12,10 +12,10 @@ export default function Floor({ room }) {
 
   const meshRef = useRef()
   
-  let bc_texture = useTexture('/textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_BaseColor.jpg');
-  let r_texture = useTexture('/textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_Roughness.jpg');
-  let m_texture = useTexture('/textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_Metallic.jpg');
-  let n_texture = useTexture('/textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_Normal.png');
+  let bc_texture = useTexture('textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_BaseColor.jpg');
+  let r_texture = useTexture('textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_Roughness.jpg');
+  let m_texture = useTexture('textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_Metallic.jpg');
+  let n_texture = useTexture('textures/Poliigon_WoodFloorAsh_4186/2K/Poliigon_WoodFloorAsh_4186_Normal.png');
 
   // Генерируем позиции и повороты
   const planks = useMemo(
@@ -65,7 +65,7 @@ export default function Floor({ room }) {
           normalMap={n_texture}
           roughness={1}
           metalness={1}
-          normalScale={[1, 1]}
+          normalScale={[1, 1]}          // ← сила эффекта (можно подстроить)
           receiveShadow
           castShadow 
         />
