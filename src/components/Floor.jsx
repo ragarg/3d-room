@@ -5,10 +5,10 @@ import { getPlankPositions } from '../utils/floorLayout.js'
 
 export default function Floor({ room }) {
   const { length, width, layoutType } = room
-  const plankLength = 0.6
-  const plankWidth = 0.1
-  const thickness = 0.015
-  const plankOffset = 0.005
+  const plankLength = 0.6 // 60cm
+  const plankWidth = 0.1 // 10cm
+  const thickness = 0.015 // 1,5cm
+  const plankOffset = 0.00005 // 0,5mm
 
   const meshRef = useRef()
   
@@ -41,6 +41,8 @@ export default function Floor({ room }) {
       meshRef.current.setMatrixAt(i, matrix)
     })
     meshRef.current.instanceMatrix.needsUpdate = true
+    meshRef.current.computeBoundingBox();
+    meshRef.current.computeBoundingSphere();
   }, [planks, thickness])
 
   return (
@@ -64,6 +66,8 @@ export default function Floor({ room }) {
           roughness={1}
           metalness={1}
           normalScale={[1, 1]}
+          receiveShadow
+          castShadow 
         />
       </instancedMesh>
     </group>
